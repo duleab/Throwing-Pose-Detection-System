@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Models (large files - use Git LFS or download separately)
+models/*.pt
+!models/.gitkeep
+
+# Output files
+output/
+results/
+*.mp4
+*.avi
+*.mov
+*.mkv
+!examples/*.mp4
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Archive
+archive/
+
+# Test outputs
+test_output/
+test_results/
+
+# Assets (keep demo files, ignore large outputs)
+# Keep demo images and videos for README showcase
+!assets/demo_images/
+!assets/demo_videos/
+!assets/output_examples/
+# But ignore very large files (use Git LFS if needed)
+assets/**/*.mp4
+assets/**/*.avi
+assets/**/*.mov
+!assets/demo_videos/demo*.mp4
