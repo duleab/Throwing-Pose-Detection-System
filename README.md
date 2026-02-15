@@ -54,33 +54,33 @@ A state-of-the-art violence detection system using YOLOv8 pose estimation, DeepS
     </td>
     <td width="25%">
       <img src="assets/output_examples/output2.jpg" alt="Violence Detection 2" width="100%"/>
-      <p align="center"><b>Fighting Scene</b></p>
+      <p align="center"><b>Multi Non-Violence Person Detection</b></p>
     </td>
     <td width="25%">
       <img src="assets/output_examples/output3.jpg" alt="Violence Detection 3" width="100%"/>
-      <p align="center"><b>Multi-Person Detection</b></p>
+      <p align="center"><b>Violence Person Detection</b></p>
     </td>
     <td width="25%">
       <img src="assets/output_examples/output4.jpg" alt="Violence Detection 4" width="100%"/>
-      <p align="center"><b>Striking Pose</b></p>
+      <p align="center"><b>Throwing Pose Detection</b></p>
     </td>
   </tr>
   <tr>
     <td width="25%">
       <img src="assets/output_examples/output5.jpg" alt="Normal Behavior 1" width="100%"/>
-      <p align="center"><b>Normal Behavior</b></p>
+      <p align="center"><b>Throwing Pose Detection</b></p>
     </td>
     <td width="25%">
       <img src="assets/output_examples/output6.jpg" alt="Normal Behavior 2" width="100%"/>
-      <p align="center"><b>Skeleton Visualization</b></p>
+      <p align="center"><b>Throwing Pose Detection</b></p>
     </td>
     <td width="25%">
       <img src="assets/output_examples/output7.jpg" alt="Custom Colors" width="100%"/>
-      <p align="center"><b>Custom Colors</b></p>
+      <p align="center"><b>Throwing Pose Detection</b></p>
     </td>
     <td width="25%">
       <img src="assets/output_examples/output8.jpg" alt="Threshold Display" width="100%"/>
-      <p align="center"><b>With Threshold Display</b></p>
+      <p align="center"><b>Throwing Pose Detection</b></p>
     </td>
   </tr>
 </table>
@@ -94,7 +94,7 @@ A state-of-the-art violence detection system using YOLOv8 pose estimation, DeepS
       <a href="assets/demo_videos/demo1.mp4">
         <img src="assets/demo_images/demo1.jpg" alt="Video Demo 1" width="100%"/>
       </a>
-      <p><b>Fighting Scene Detection</b> - Real-time tracking and classification</p>
+      <p><b>Throwing Pose Detection</b> - Real-time tracking and classification</p>
     </td>
     <td width="50%">
       <h4>🎥 Multi-Person Tracking</h4>
@@ -322,89 +322,6 @@ violence-detection-system/
 - **Images**: JPG, JPEG, PNG, BMP
 - **Videos**: MP4, AVI, MOV, MKV
 
----
-
-## 🔧 Configuration
-
-### **Detection Parameters**
-
-Edit `src/config.yaml` or use the Streamlit sidebar:
-
-```yaml
-detection:
-  min_violence_frames: 6      # Consecutive frames for confirmation
-  confidence_threshold: 0.8   # Minimum score for violence
-  static_threshold: 0.5       # Threshold for static images
-
-tracking:
-  max_age: 15                 # Max frames to keep lost tracks
-  n_init: 2                   # Frames before track confirmation
-
-visualization:
-  show_skeleton: true         # Draw pose skeleton
-  show_labels: true           # Show classification labels
-  show_confidence: true       # Show confidence percentage
-  bbox_thickness: 3           # Bounding box line thickness
-  skeleton_thickness: 2       # Skeleton line thickness
-  keypoint_radius: 5          # Keypoint circle size
-```
-
----
-
-## 📊 API Usage
-
-### **Python API**
-
-```python
-from src.violence_detection import (
-    ModelLoader, PersonTracker, FeatureExtractor,
-    ViolenceClassifier, VideoProcessor, ImageProcessor
-)
-
-# Initialize components
-model_loader = ModelLoader('models/yolov8n-pose.pt', 'models/yolov8n.pt')
-tracker = PersonTracker(max_age=15, n_init=2)
-feature_extractor = FeatureExtractor()
-classifier = ViolenceClassifier()
-
-# Process image
-image_processor = ImageProcessor(model_loader, feature_extractor, classifier)
-result = image_processor.process_image('path/to/image.jpg')
-
-print(f"Violence detected: {result['results']['has_violence']}")
-print(f"Persons detected: {len(result['results']['detections'])}")
-
-# Process video
-video_processor = VideoProcessor(model_loader, tracker, feature_extractor, classifier)
-stats = video_processor.process_video('input.mp4', 'output.mp4', min_violence_frames=6)
-
-print(f"Violent frames: {stats['violent_frames']}/{stats['total_frames']}")
-```
-
----
-
-## 🎨 Customization Examples
-
-### **Color Schemes**
-
-**Classic (Default)**
-```python
-violent_color = "#FF0000"  # Red
-normal_color = "#00FF00"   # Green
-```
-
-**High Contrast**
-```python
-violent_color = "#FFFF00"  # Yellow
-normal_color = "#0000FF"   # Blue
-```
-
-**Dark Mode**
-```python
-violent_color = "#FF8800"  # Orange
-normal_color = "#00FFFF"   # Cyan
-```
-
 ### **Display Modes**
 
 **Full Information**
@@ -488,8 +405,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions, issues, or suggestions:
 
-- **GitHub Issues**: [Create an issue](https://github.com/yourusername/violence-detection-system/issues)
-- **Email**: your.email@example.com
+- **GitHub Issues**: [Create an issue](https://github.com/duleab/violence-detection-system/issues)
+- **Email**: duleabera05@gmail.com
 
 ---
 
