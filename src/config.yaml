@@ -1,0 +1,178 @@
+# Violence Detection System - Configuration File
+# This file contains all configurable parameters for the system
+
+# Model Configuration
+models:
+  # Path to YOLOv8 pose estimation model
+  # Options: yolov8n-pose.pt (nano), yolov8s-pose.pt (small), yolov8m-pose.pt (medium)
+  pose_model: "yolov8n-pose.pt"
+  
+  # Path to YOLOv8 object detection model
+  # Options: yolov8n.pt (nano), yolov8s.pt (small), yolov8m.pt (medium)
+  detection_model: "yolov8n.pt"
+  
+  # Minimum confidence threshold for person detection (0.0 - 1.0)
+  confidence_threshold: 0.4
+
+# Person Tracking Configuration
+tracking:
+  # Maximum frames to keep track after person disappears
+  max_age: 15
+  
+  # Number of consecutive frames required to confirm new track
+  n_init: 2
+
+# Violence Classification Configuration
+classification:
+  # Minimum consecutive frames with violence to trigger alert
+  min_violence_frames: 6
+  
+  # Violence score threshold (0.0 - 1.0)
+  violence_threshold: 0.8
+  
+  # Maximum distance (pixels) for interaction detection
+  proximity_threshold: 150
+  
+  # Feature thresholds for violence detection
+  features:
+    upper_body_movement_threshold: 40
+    wrist_acceleration_threshold: 25
+    movement_variance_threshold: 120
+    hip_movement_threshold: 15
+
+# Video Processing Configuration
+video_processing:
+  # Minimum frames between stored violent frames
+  frame_skip: 15
+  
+  # Maximum number of violent frames to store
+  max_violent_frames: 9
+  
+  # Process every Nth frame (1 = process all frames)
+  frame_sampling: 1
+
+# Rendering Configuration
+rendering:
+  # Colors for bounding boxes (BGR format)
+  violent_color: [0, 0, 255]    # Red
+  normal_color: [255, 255, 0]   # Cyan
+  
+  # Status bar configuration
+  status_bar_height: 28
+  status_bar_opacity: 0.4
+  
+  # Font configuration
+  font_scale: 0.6
+  font_thickness: 1
+
+# Performance Configuration
+performance:
+  # Enable GPU acceleration (requires CUDA)
+  use_gpu: true
+  
+  # Batch size for image processing
+  batch_size: 8
+  
+  # Maximum keypoint history per person
+  max_history_length: 15
+
+# Logging Configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log file path
+  file: "violence_detection.log"
+  
+  # Maximum log file size (MB)
+  max_file_size: 10
+  
+  # Number of backup log files
+  backup_count: 5
+  
+  # Console logging enabled
+  console_enabled: true
+
+# Output Configuration
+output:
+  # Default output directory
+  output_dir: "output"
+  
+  # Save annotated frames
+  save_frames: true
+  
+  # Save statistics JSON
+  save_statistics: true
+  
+  # Video codec for output (mp4v, avc1, etc.)
+  video_codec: "mp4v"
+
+# API Configuration (if using REST API)
+api:
+  # Server host
+  host: "0.0.0.0"
+  
+  # Server port
+  port: 8000
+  
+  # Enable CORS
+  cors_enabled: true
+  
+  # Maximum upload file size (MB)
+  max_upload_size: 100
+  
+  # API key authentication (leave empty to disable)
+  api_key: ""
+
+# Database Configuration (if using database)
+database:
+  # Database URL (SQLite example)
+  url: "sqlite:///violence_events.db"
+  
+  # Enable event logging
+  log_events: false
+  
+  # Retention period (days)
+  retention_days: 30
+
+# Privacy Configuration
+privacy:
+  # Enable face blurring
+  blur_faces: false
+  
+  # Blur strength (odd number, higher = more blur)
+  blur_strength: 51
+  
+  # Anonymize stored frames
+  anonymize_storage: false
+
+# Alert Configuration
+alerts:
+  # Enable alerting system
+  enabled: false
+  
+  # Alert methods: email, webhook, sms
+  methods: ["webhook"]
+  
+  # Webhook URL for alerts
+  webhook_url: ""
+  
+  # Minimum confidence for alert
+  min_confidence: 0.8
+  
+  # Cooldown period between alerts (seconds)
+  cooldown_period: 60
+
+# Development/Debug Configuration
+debug:
+  # Enable debug mode
+  enabled: false
+  
+  # Show processing time per frame
+  show_timing: false
+  
+  # Save intermediate results
+  save_intermediate: false
+  
+  # Verbose model output
+  verbose_models: false
